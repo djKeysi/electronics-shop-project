@@ -41,3 +41,7 @@ def test_setters(items):
     items.name = "Сотовый"
     assert items.name == "Сотовый"
 
+def test_str_repr(items):
+    assert repr(items) == "Item('Смартфон', 10000, 20)"
+    assert str(items) == 'Смартфон'
+
