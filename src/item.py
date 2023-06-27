@@ -27,6 +27,10 @@ class Item:
         return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
     def __str__(self):
         return self.__name
+    def __add__(self, other):
+        if issubclass(other.__class__,self.__class__):
+            return self.quantity + other.quantity
+        raise Exception
 
 
     def calculate_total_price(self) -> float:
