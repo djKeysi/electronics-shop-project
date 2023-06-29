@@ -16,8 +16,8 @@ def test_init(keyboard):
     assert keyboard.quantity == 5
     assert keyboard.language == "EN"
 
-def test_change_lang(keyboard):
-    assert str(keyboard.language) == "EN"
+def test_change_lang(mixkeyboard):
+    assert str(mixkeyboard.language) == "EN"
 
 def test_str(keyboard):
     assert str(keyboard) == "Dark Project KD87A"
