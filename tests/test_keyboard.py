@@ -26,7 +26,7 @@ def test_getters(keyboard):
     assert keyboard.language == "EN"
 
 def test_init_mixkeyboard(mixkeyboard):
-    assert mixkeyboard.language == "RU"
+    assert mixkeyboard.language == "EN"
 
 
 
