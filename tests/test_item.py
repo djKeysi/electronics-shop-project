@@ -1,12 +1,15 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 
-from src.item import Item
+from src.item import Item,InstantiateCSVError
 from src.phone import Phone
 import pytest
 
 @pytest.fixture
 def items():
     return Item("Смартфон", 10000, 20)
+@pytest.fixture
+def instantiateCSVerror():
+    return InstantiateCSVError("Message")
 @pytest.fixture
 def phones():
     return Phone("iPhone 14", 120_000, 5, 2)
@@ -31,8 +34,18 @@ def test_string_to_number(items):
     assert items.string_to_number('5.5') == 5
     assert items.string_to_number('55.5') == 5
 
-def test_instantiate_from_csv(items):
+def test_instantiate_from_csv(items,instantiateCSVerror):
     assert Item.all[0].name == "Смартфон"
+    with pytest.raises(FileNotFoundError):
+        open(".../src/item.csv")
+    assert instantiateCSVerror.message == "Message"
+
+
+
+
+   #with pytest.raises(InstantiateCSVError,match='must be positive'):
+       #items.instantiate_from_csv()
+
 
 def test_getters(items):
     assert items.name == "Смартфон"

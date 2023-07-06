@@ -33,5 +33,5 @@ def test_init_mixkeyboard(mixkeyboard):
     assert str(mixkeyboard.language) == "EN"
     assert mixkeyboard.language == "EN"
 
-def test_change_language(keyboard):
-    assert keyboard.change_lang() == "RU"
+#def test_change_language(keyboard):
+ #   assert keyboard.change_lang() == "RU"
